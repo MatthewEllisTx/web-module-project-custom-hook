@@ -67,8 +67,8 @@ const [storedValue, setStoredValue] = useState(() => {
 import { useState } from "react";
 
 export const useLocalStorage = (key, initialValue) => {
-  const [storedValue, setStoredValue] = useState(() => {
-    const item = window.localStorage.getItem(key);
+  const [storedValue, setStoredValue] = useState(() => { // If I understand correctly, putting an anonymous function inside useState stores the function
+    const item = window.localStorage.getItem(key); // and so the function gets called each time
     return item ? JSON.parse(item) : initialValue;
   });
 
