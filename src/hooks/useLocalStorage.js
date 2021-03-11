@@ -5,7 +5,7 @@ function initialState(key, defaultValue){
   return item !== undefined ? item : defaultValue;
 }
 
-export function useLocalStorage(key, defaultValue){
+export default function useLocalStorage(key, defaultValue){
   const [ value, setValue ] = useState(initialState(key, defaultValue)); // doing it this way means initialState is only called once
 
   function setStorageValue(newValue){
